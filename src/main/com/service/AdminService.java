@@ -1,4 +1,8 @@
-package main.com.service;
+/**
+ * @file AdminService.java
+ * @brief 管理员服务类，提供管理员相关的操作方法
+ * @package main.com.service
+ */  package main.com.service;
 
 import main.com.model.Admin;
 import main.com.model.Good;
@@ -10,10 +14,20 @@ import main.com.util.UserUtil;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @class AdminService
+ * @brief 管理员服务类，提供管理员的登录和系统管理功能
+ * @details 包含商品管理、用户管理等管理员操作
+ */
 public class AdminService {
+    /** @brief 系统输入扫描器 */
     private Scanner scanner = new Scanner(System.in);
 
-    // 管理员登录
+    /**
+     * @brief 管理员登录方法
+     * @return 登录是否成功
+     * @details 提示输入用户名和密码，并验证管理员身份
+     */
     public boolean login() {
         System.out.print("请输入管理员用户名: ");
         String username = scanner.nextLine();
@@ -23,7 +37,10 @@ public class AdminService {
         return AdminUtil.validateAdmin(username, password);
     }
 
-    // 添加商品
+    /**
+     * @brief 添加商品方法
+     * @details 通过控制台输入商品信息，并将商品保存到系统
+     */
     public void addGood() {
         System.out.print("请输入商品ID: ");
         String id = scanner.nextLine();
@@ -43,7 +60,10 @@ public class AdminService {
         System.out.println("商品添加成功！");
     }
 
-    // 修改商品
+    /**
+     * @brief 修改商品信息方法
+     * @details 根据商品ID查找并更新商品信息
+     */
     public void modifyGood() {
         System.out.print("请输入要修改的商品ID: ");
         String id = scanner.nextLine();
@@ -68,7 +88,10 @@ public class AdminService {
         }
     }
 
-    // 删除商品
+    /**
+     * @brief 删除商品方法
+     * @details 根据商品ID从系统中删除商品
+     */
     public void deleteGood() {
         System.out.print("请输入要删除的商品ID: ");
         String id = scanner.nextLine();
@@ -76,6 +99,10 @@ public class AdminService {
         System.out.println("商品删除成功！");
     }
 
+    /**
+     * @brief 删除商品方法
+     * @details 根据商品ID从系统中删除商品
+     */
     public static void viewGoods() {
         // 确保商品数据已经加载
         TxtUtil.loadGoods(); // 重新加载商品列表
@@ -90,7 +117,10 @@ public class AdminService {
         }
     }
 
-    // 查看用户列表
+    /**
+     * @brief 查看用户列表方法
+     * @details 读取并显示系统中的所有用户
+     */
     public void viewUsers() {
         List<User> users = UserUtil.readUsersFromTxt(); // 读取所有用户
         if (users.isEmpty()) {
@@ -103,7 +133,10 @@ public class AdminService {
         }
     }
 
-    // 删除用户
+    /**
+     * @brief 删除用户方法
+     * @details 根据用户名从系统中删除用户
+     */
     public void deleteUser() {
         System.out.print("请输入要删除的用户用户名: ");
         String username = scanner.nextLine();

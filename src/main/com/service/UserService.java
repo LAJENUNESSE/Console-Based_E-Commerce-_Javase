@@ -1,3 +1,8 @@
+/**
+ * @file UserService.java
+ * @brief 用户服务类，提供用户相关的操作
+ * @package main.com.service
+ */
 package main.com.service;
 
 import main.com.model.Good;
@@ -9,16 +14,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @class UserService
+ * @brief 处理用户操作的服务类
+ * @details 提供用户注册、登录、购物车、结算等功能
+ */
 public class UserService {
-    private Scanner scanner = new Scanner(System.in);
-    private String loggedInUsername; // 当前登录用户的用户名
-    private List<CartItem> cart; // 用于存储购物车中的商品和数量
 
+    /** @brief 系统输入扫描器 */
+    private Scanner scanner = new Scanner(System.in);
+    /** @brief 当前登录用户的用户名 */
+    private String loggedInUsername;
+    /** @brief 用户购物车 */
+    private List<CartItem> cart;
+
+    /**
+     * @brief 构造函数，初始化购物车
+     */
     public UserService() {
         cart = new ArrayList<>(); // 初始化购物车
     }
 
-    // 用户注册
+    /**
+     * @brief 用户注册方法
+     * @details 提示用户输入注册信息并保存到文件
+     */
     public void register() {
         System.out.print("请输入用户名: ");
         String username = scanner.nextLine();
@@ -34,7 +54,11 @@ public class UserService {
         System.out.println("注册成功！");
     }
 
-    // 用户登录
+    /**
+     * @brief 用户登录方法
+     * @return 登录是否成功
+     * @details 验证用户名和密码，成功则保存当前登录用户
+     */
     public boolean login() {
         System.out.print("请输入用户名: ");
         String username = scanner.nextLine();
@@ -48,11 +72,19 @@ public class UserService {
         return false; // 登录失败
     }
 
+    /**
+     * @brief 获取当前登录用户名
+     * @return 当前登录的用户名
+     */
     public String getLoggedInUsername() {
         return loggedInUsername; // 获取当前登录的用户名
     }
 
-    // 查看用户购买的商品
+    /**
+     * @brief 查看用户已购买的商品
+     * @param username 用户名
+     * @details 从文件中读取并显示用户购买的商品
+     */
     public void viewPurchasedGoods(String username) {
         List<String> purchasedGoods = TxtUtil.getPurchasedGoodsByUser(username);
         if (purchasedGoods.isEmpty()) {
@@ -65,9 +97,13 @@ public class UserService {
         }
     }
 
-    // 添加商品到购物车
+    /**
+     * @brief 将商品添加到购物车
+     * @param goodId 商品ID
+     * @param quantity 购买数量
+     * @details 检查库存并将商品添加到购物车
+     */
     public void addGoodToCart(String goodId, int quantity) {
-        // 根据商品ID获取商品
         Good good = TxtUtil.getGoodById(goodId);
 
         if (good != null) {
@@ -88,7 +124,10 @@ public class UserService {
         }
     }
 
-    // 查看购物车中的商品
+    /**
+     * @brief 查看购物车中的商品
+     * @details 显示购物车中所有商品及其数量
+     */
     public void viewCart() {
         if (cart.isEmpty()) {
             System.out.println("购物车为空。");
@@ -100,14 +139,16 @@ public class UserService {
         }
     }
 
-    // 结算
+    /**
+     * @brief 购物车结算方法
+     * @details 计算总价、应用折扣、确认购买并记录购买信息
+     */
     public void checkout() {
         if (cart.isEmpty()) {
             System.out.println("购物车为空，无法结算。");
             return;
         }
 
-        // 显示购物车中的商品信息
         System.out.println("购物车中的商品：");
         double totalPrice = 0; // 初始化总价格
         for (CartItem item : cart) {
@@ -118,7 +159,6 @@ public class UserService {
 
         System.out.println("总价格: " + totalPrice + "元"); // 显示总价格
 
-        // 计算折扣
         double discountedPrice;
         if (totalPrice < 1000) {
             double discountRate = 0.7 + (Math.random() * 0.2); // 随机生成 0.7 到 0.9 的折扣率
@@ -146,7 +186,10 @@ public class UserService {
         }
     }
 
-    // 找回密码
+    /**
+     * @brief 找回密码方法
+     * @details 通过验证用户信息来重置密码
+     */
     public void forgotPassword() {
         System.out.print("请输入用户名: ");
         String username = scanner.nextLine();
@@ -178,20 +221,39 @@ public class UserService {
         }
     }
 
-    // 内部类 CartItem，用于存储购物车中的商品和数量
+    /**
+     * @class CartItem
+     * @brief 购物车内部类，用于存储购物车中的商品和数量
+     * @details 封装商品对象和购买数量
+     */
     private class CartItem {
+        /** @brief 购物车中的商品 */
         private Good good;
+        /** @brief 商品数量 */
         private int quantity;
 
+        /**
+         * @brief 购物车项目构造函数
+         * @param good 商品对象
+         * @param quantity 购买数量
+         */
         public CartItem(Good good, int quantity) {
             this.good = good;
             this.quantity = quantity;
         }
 
+        /**
+         * @brief 获取商品对象
+         * @return 商品对象
+         */
         public Good getGood() {
             return good;
         }
 
+        /**
+         * @brief 获取商品数量
+         * @return 商品数量
+         */
         public int getQuantity() {
             return quantity;
         }

@@ -1,3 +1,8 @@
+/**
+ * @file Main.java
+ * @brief 电子商城系统的主入口类
+ * @package main.com
+ */
 package main.com;
 
 import main.com.model.Good;
@@ -9,12 +14,30 @@ import main.com.util.TxtUtil;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @class Main
+ * @brief 电子商城系统的主类，负责用户交互和菜单管理
+ * @details 提供用户、管理员登录和各种功能菜单的入口
+ */
 public class Main {
+
+    /** @brief 系统输入扫描器 */
     private static Scanner scanner = new Scanner(System.in);
+
+    /** @brief 用户服务对象 */
     private static UserService userService = new UserService();
+
+    /** @brief 管理员服务对象 */
     private static AdminService adminService = new AdminService();
+
+    /** @brief 商品服务对象 */
     private static GoodService goodService = new GoodService();
 
+    /**
+     * @brief 主程序入口方法
+     * @param args 命令行参数
+     * @details 显示主菜单，提供用户注册、登录、管理员登录等功能
+     */
     public static void main(String[] args) {
         while (true) {
             System.out.println("欢迎来到电子商城系统");
@@ -57,6 +80,10 @@ public class Main {
         }
     }
 
+    /**
+     * @brief 用户菜单方法
+     * @details 提供用户可用的功能，包括查看商品、购物车操作、结算等
+     */
     private static void userMenu() {
         while (true) {
             System.out.println("用户菜单");
@@ -101,6 +128,10 @@ public class Main {
         }
     }
 
+    /**
+     * @brief 管理员菜单方法
+     * @details 提供管理员可用的功能，包括商品管理、用户管理等
+     */
     private static void adminMenu() {
         while (true) {
             System.out.println("管理员菜单");

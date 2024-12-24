@@ -1,3 +1,8 @@
+/**
+ * @file Admin.java
+ * @brief 管理员类，定义管理员的基本属性和操作
+ * @package main.com.model
+ */
 package main.com.model;
 
 import main.com.util.AdminUtil;
@@ -6,29 +11,50 @@ import main.com.util.TxtUtil;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * @class Admin
+ * @brief 管理员实体类，提供管理员相关的操作方法
+ * @details 包含管理员登录、商品管理、用户管理等功能
+ */
 public class Admin {
-
+    /** @brief 管理员用户名 */
     private String username;
+    /** @brief 管理员密码 */
     private String password;
+    /** @brief 系统输入扫描器 */
     private Scanner scanner = new Scanner(System.in);
 
-    // 构造函数
+    /**
+     * @brief 构造函数
+     * @param username 管理员用户名
+     * @param password 管理员密码
+     */
     public Admin(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    // 获取用户名
+    /**
+     * @brief 获取管理员用户名
+     * @return 管理员用户名
+     */
     public String getUsername() {
         return username;
     }
 
-    // 获取密码
+    /**
+     * @brief 获取管理员密码
+     * @return 管理员密码
+     */
     public String getPassword() {
         return password;
     }
 
-    // 管理员登录
+    /**
+     * @brief 管理员登录方法
+     * @return 登录是否成功
+     * @details 提示输入用户名和密码，并验证管理员身份
+     */
     public boolean login() {
         System.out.print("请输入管理员用户名: ");
         String username = scanner.nextLine();
@@ -38,7 +64,10 @@ public class Admin {
         return AdminUtil.validateAdmin(username, password);
     }
 
-    // 添加商品
+    /**
+     * @brief 添加商品方法
+     * @details 通过控制台输入商品信息，并将商品添加到系统
+     */
     public void addGood() {
         System.out.print("请输入商品ID: ");
         String id = scanner.nextLine();
@@ -58,7 +87,10 @@ public class Admin {
         System.out.println("商品添加成功！");
     }
 
-    // 修改商品
+    /**
+     * @brief 修改商品方法
+     * @details 根据商品ID查找并更新商品信息
+     */
     public void modifyGood() {
         System.out.print("请输入要修改的商品ID: ");
         String id = scanner.nextLine();
@@ -83,7 +115,10 @@ public class Admin {
         }
     }
 
-    // 删除商品
+    /**
+     * @brief 删除商品方法
+     * @details 根据商品ID删除商品
+     */
     public void deleteGood() {
         System.out.print("请输入要删除的商品ID: ");
         String id = scanner.nextLine();
@@ -91,6 +126,10 @@ public class Admin {
         System.out.println("商品删除成功！");
     }
 
+    /**
+     * @brief 查看所有商品方法
+     * @details 加载并显示所有商品信息
+     */
     public static void viewGoods() {
         // 确保商品数据已经加载
         TxtUtil.loadGoods(); // 重新加载商品列表
@@ -105,7 +144,10 @@ public class Admin {
         }
     }
 
-    // 查看用户列表
+    /**
+     * @brief 查看用户列表方法
+     * @details 显示所有管理员的用户名
+     */
     public void viewUsers() {
         List<Admin> admins = AdminUtil.readAdminsFromTxt(); // 假设有一个方法读取所有管理员
         for (Admin admin : admins) {
