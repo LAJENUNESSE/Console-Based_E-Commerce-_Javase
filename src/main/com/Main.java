@@ -21,7 +21,7 @@ public class Main {
             System.out.println("1. 注册");
             System.out.println("2. 登录");
             System.out.println("3. 管理员登录");
-            System.out.println("4. 找回密码"); // 添加找回密码选项
+            System.out.println("4. 找回密码"); // 添加找回密码选项000
             System.out.println("5. 退出系统");
             System.out.print("请选择操作: ");
             int choice = scanner.nextInt();
