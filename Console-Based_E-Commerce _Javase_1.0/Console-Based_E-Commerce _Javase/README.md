@@ -1,53 +1,81 @@
-# E-Commerce Application  
+# Console-Based E-Commerce Application
 
-这是一个简单的电子商务应用程序，用户可以浏览商品、将商品添加到购物车、查看已购买的商品，以及进行结算。该应用程序实现了用户管理、商品管理和购物车管理的基本功能。  
+这是一个基于控制台的电子商务应用程序，它允许用户浏览商品、管理购物车以及进行交易。该应用程序实现了基本的用户和商品管理功能。
 
 ## 项目结构  
+Console-Based_E-Commerce_Javase  
+├── .idea  
+├── out  
+├── src  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├── main  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── com  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├── model # 数据模型类  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├── AdminService  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├── GoodService  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── UserService  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── service # 服务类，处理业务逻辑  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├── AdminService  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├── GoodService  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── UserService  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── util # 工具类  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── AdminUtil  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── TxtUtil  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── UserUtil  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── Main # 应用入口  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── resources # 资源文件  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├── Admin.txt # 管理员相关数据  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├── goods.txt # 商品信息  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├── purchases.txt # 购买记录  
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └── users.txt # 用户信息  
+└── test  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── com  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── service # 服务层测试  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── GoodServiceTest
 
-- **Users**: 处理用户的相关信息，如用户名、密码和购物车。  
-- **Goods**: 表示商品的类，包含商品信息如ID、名称、描述、价格和库存。  
-- **Cart**: 处理购物车功能，允许用户将商品添加到购物车和查看购物车内容。  
-- **TxtUtil**: 用于读写商品和用户信息的工具类。  
-- **UserService**: 处理用户相关操作的服务类。  
+## 功能特性
 
-## 功能特性  
+- **用户管理**：注册、登录和验证用户身份。
+- **商品管理**：浏览商品列表、添加商品、查看商品详情。
+- **购物车功能**：添加商品到购物车、查看购物车内容和删除购物车中的商品。
+- **交易功能**：用户可以购买购物车中的商品并查看购买记录。
 
-- 用户注册与登录  
-- 浏览商品列表  
-- 将商品添加到购物车  
-- 查看购物车内商品  
-- 查看已购买商品  
-- 商品库存管理  
+## 环境要求
 
-## 环境要求  
+- JDK 8 或更高版本
+- Maven（可选，用于依赖管理）
 
-- JDK 8 或更高版本  
-- Maven（可选，用于依赖管理）  
+## 安装与运行
 
-## 安装与运行  
-
-1. **克隆项目**  
+1. **克隆项目**
 
    ```bash  
-   git clone https://github.com/your-username/ecommerce-app.git  
-   cd ecommerce-app  
-编译项目
+   git clone https://github.com/LAJENUNESSE/Console-Based_E-Commerce-_Javase.git  
+   cd Console-Based_E-Commerce_Javase  
+
+2. **编译项目**
 
 使用 Maven 构建项目（如果使用 Maven 管理依赖）：
 
-mvn install  
-运行应用程序
 
-运行包含 main 方法的主类（例如 ECommerceApp）：
+   ```bash
+   mvn install  
+   ```
 
-java -cp target/ecommerce-app-1.0-SNAPSHOT.jar com.yourpackage.ECommerceApp  
-使用说明
-启动应用程序后，用户可以根据指示选择操作。
-在商品列表中，用户可以输入商品ID以将商品添加到购物车。
-用户可以查看当前购物车的内容和已购买商品的列表。
-代码示例
+3. **运行应用程序**
+
+运行包含 main 方法的主类（例如 Main）：
+```bash
+java -cp target/Console-Based_E-Commerce_Javase-1.0-SNAPSHOT.jar com.Main 
+ ```
+
+**使用说明**  
+启动应用程序后，用户可以根据提示选择操作。在商品列表中，用户可以输入商品ID以将商品添加到购物车。用户还可以查看当前购物车的内容和已购买商品的列表。
+
+
+**代码示例**  
 以下是如何加载用户信息的示例：
 
+```bash
 public static void Load_Users(ArrayList<Users> users, InputStream bufis) throws IOException {  
     BufferedReader reader = new BufferedReader(new InputStreamReader(bufis));  
     String line;  
@@ -57,23 +85,13 @@ public static void Load_Users(ArrayList<Users> users, InputStream bufis) throws 
         u1.setShoping_Car(new ArrayList<Goods>());  
         users.add(u1);  
     }  
-}  
-问题与解决方案
-用户ID丢失: 如果发现用户ID在加载时丢失，请确保输入数据格式正确并包含所有必要字段。
-购物车为空: 确保在添加商品到购物车后，用户能够调用对应的方法来检查购物车内容。
-贡献
-欢迎贡献代码或提出问题。请提交 PR 或在问题跟踪中报告bug。
+} 
+```
 
-许可证
-本项目以 MIT 许可证发布。
+**问题与解决方案**  
+- **用户ID丢失**：如果发现用户ID在加载时丢失，请确保输入数据格式正确并包含所有必要字段。
+- **购物车为空**：确保在添加商品到购物车后，用户能够调用相应的方法来检查购物车内容。
 
-感谢您使用本电子商务应用！
+**贡献**  
+  欢迎贡献代码或提出问题。请提交 PR 或在问题跟踪中报告 bug。
 
-
-### 使用说明  
-
-1. **修改项目链接**：将 `https://github.com/your-username/ecommerce-app.git` 修改为实际的项目链接。  
-2. **填充代码示例**：根据需要调整代码示例，添加更多相关代码片段或使用说明。  
-3. **补充功能与问题**：根据具体实现认真补充和更新功能特性及遇到的问题与解决方案部分。  
-
-您可以根据项目的实际需求和功能进行调整，确保文档准确反映应用程序的使用和功能。
