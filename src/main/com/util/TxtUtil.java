@@ -4,6 +4,7 @@ import main.com.model.Good;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class TxtUtil {
@@ -35,6 +36,8 @@ public class TxtUtil {
                 Good good = new Good(id, name, description, price, stock, category);
                 goods.add(good);
             }
+            // 按价格排序
+            goods.sort(Comparator.comparingDouble(Good::getPrice));
         } catch (IOException e) {
             e.printStackTrace();
         }

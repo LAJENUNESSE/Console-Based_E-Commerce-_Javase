@@ -21,7 +21,7 @@ public class Main {
             System.out.println("1. 注册");
             System.out.println("2. 登录");
             System.out.println("3. 管理员登录");
-            System.out.println("4. 找回密码"); // 添加找回密码选项000
+            System.out.println("4. 找回密码"); // 添加找回密码选项
             System.out.println("5. 退出系统");
             System.out.print("请选择操作: ");
             int choice = scanner.nextInt();
@@ -143,28 +143,33 @@ public class Main {
     }
 }
 /**
- * Console-Based_E_Commerce_Javase/
- * │
- * ├── src/
- * │    ├── main/
- * │    │    ├── com/
- * │    │    │   ├── model/
- * │    │    │   │   ├── User.java          // 用户类
- * │    │    │   │   ├── Good.java          // 商品类
- * │    │    │   │   └── Admin.java         // 管理员类
- * │    │    │   ├── service/
- * │    │    │   │   ├── UserService.java   // 用户服务类
- * │    │    │   │   ├── GoodService.java   // 商品服务类
- * │    │    │   │   └── AdminService.java  // 管理员服务类
- * │    │    │   ├── util/
- * │    │    │   │   └── TxtUtil.java     // 处理Excel文件的工具类
- * │    │    │   └── Main.java               // 主程序入口
- * │    │    └── resources/
- * │    │           └── goods.xlsx                       // 存储商品信息的Excel文件
- * │    └── test/
- * │          └── com/
- * │              └── service/
- * │                     └── GoodServiceTest.java // 商品服务测试类
- * │
- * └── README.md                                    // 项目说明文件
+ * Console-Based_E-Commerce_Javase
+ * ├──.idea
+ * ├── out
+ * ├── src
+ * │   ├── main
+ * │   │   └── com
+ * │   │       ├── model # 数据模型类
+ * │   │       │    ├── AdminService
+ * │   │       │    ├── GoodService
+ * │   │       │    └── UserService
+ * │   │       ├── service # 服务类，处理业务逻辑
+ * │   │       │    ├── AdminService
+ * │   │       │    ├── GoodService
+ * │   │       │    └── UserService
+ * │   │       └── util # 工具类
+ * │   │       │    ├── AdminUtil
+ * │   │       │    ├── TxtUtil
+ * │   │       │    └── UserUtil
+ * │   │       └── Main # 应用入口
+ * │   └── resources # 资源文件
+ * │       ├── Admin.txt # 管理员相关数据
+ * │       ├── goods.txt # 商品信息
+ * │       ├── purchases.txt # 购买记录
+ * │       └── users.txt # 用户信息
+ * └── test
+ *     └── com
+ *         └── service # 服务层测试
+ *              └── GoodServiceTest
+ *
  */
